@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Zyreekian Translator</title>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #e0e0e0;
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+    textarea, #output {
+      width: 80%;
+      background: #1a1a1a;
+      border: 1px solid #555;
+      color: #e0e0e0;
+      padding: 10px;
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #555;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Zyreekian Translator</h1>
+  <textarea id="input" rows="4" placeholder="Enter English text here..."></textarea>
+  <button onclick="translate()">Translate</button>
+  <div id="output" placeholder="Zyreekian output will appear here..."></div>
+
+  <script>
+    const zyreekianMap = {
+      A: "𓂀", B: "ᚷ", C: "ᓭ", D: "𖼆", E: "ܧ", F: "ᚡ", G: "ᛥ", H: "𖣘", I: "፠", J: "Ꮶ",
+      K: "𐔧", L: "𐑒", M: "௵", N: "ᙢ", O: "𐍉", P: "𓊍", Q: "𐌘", R: "ᚱ", S: "Ϟ", T: "𐊗",
+      U: "𓅓", V: "ᘓ", W: "𐍅", X: "𖤐", Y: "𐰘", Z: "𐊶"
+    };
+
+    function translate() {
+      const input = document.getElementById("input").value.toUpperCase();
+      let output = "";
+      for (let char of input) {
+        if (zyreekianMap[char]) {
+          output += zyreekianMap[char];
+        } else {
+          output += char;
+        }
+      }
+      document.getElementById("output").innerText = output;
+    }
+  </script>
+</body>
+</html>
